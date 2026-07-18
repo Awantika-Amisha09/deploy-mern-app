@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import { use } from 'react';
+
 import RefreshHandler from './RefreshHandler';
 import { useState } from 'react';
 
@@ -19,7 +19,7 @@ function App() {
     <div className="App">
       <RefreshHandler setIsAuthenticated={setIsAuthenticated}/>
       <Routes>
-        <Route path = '/' element = {<Navigate to = "/login" />}/>  //Redirection
+        <Route path = '/' element = {<Navigate to = "/login" />}/>  {/*Redirection*/}
         <Route path = '/login' element = {<Login />}/>
         <Route path = '/signup' element = {<Signup />}/>
         <Route path = '/home' element = {<PrivateRoute element = {<Home />}/>} />
