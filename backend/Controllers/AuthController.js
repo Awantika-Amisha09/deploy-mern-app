@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const UserModel = require("../Models/user");
 
@@ -40,7 +40,7 @@ const login = async(req, res) => {
         const isPassEqual = await bcrypt.compare(password, user.password);
         if(!isPassEqual){
             return res.status(403)
-                .json({message: errorMsg, succes: false});
+                .json({message: errorMsg, success: false});
         }
         const jwtToken = jwt.sign(
             {email: user.email, _id: user._id},
